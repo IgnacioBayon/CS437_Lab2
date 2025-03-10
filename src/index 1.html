@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .container{
+        display: flex;
+      }
+      .arrow-button {
+        background: none;
+        border: none;
+        font-size: 50px;
+        color: grey;
+        cursor: pointer;
+      }
+      .arrow-button:hover {
+        color: green;
+      }
+      .stop-button {
+        background: none;
+        border: none;
+        font-size: 50px;
+        color: red;
+        cursor: pointer;
+      }
+      .stop-button:hover {
+        color: darkred;
+      }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>CS498: IoT -- Lab 2</h2>
+        <img src="./media/default_background.png" id='pics'>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="container">
+        <div class="jumbotron text-center col-md-6">
+          <span>&nbsp;&nbsp;</span>
+          <button id="upArrow" class="arrow-button" onclick="send_data('up')">&#8679;</button>
+          <br>
+          <button id="leftArrow" class="arrow-button" onclick="send_data('left')">&#8678;</button>
+          <button id="stopButton" class="stop-button" onclick="send_data('stop')">&#9632;</button>
+          <button id="rightArrow" class="arrow-button" onclick="send_data('right')">&#8680;</button>
+          <br>
+          <span>&nbsp;&nbsp;</span>
+          <button id="downArrow" class="arrow-button" onclick="send_data('down')">&#8681;</button>
+        </div>
+
+        <div class="jumbotron text-left col-md-6">
+          <input id="message" type="text" placeholder="message to Pi"/>
+          <button class="btn btn-success" onclick="update_data()">Submit</button>
+          <p>
+            <span id="direction_dot" style="color:Green">&bull;</span> Car Direction: <span id="direction"> </span>
+            <br>
+            <span id="speed_dot" style="color:green">&bull;</span> Speed: <span id="speed">0.0</span>
+            <br>
+            <span id="distance_dot" style="color:green">&bull;</span> Distance Traveled: <span id="distance">0.0</span>
+            <br>
+            <span id="temprature_dot" style="color:green">&bull;</span> Temperature of the Pi: <span id="temperature">0.0</span>
+            <br>
+            Bluetooth return value: <span id="bluetooth"> </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
